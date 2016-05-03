@@ -5,18 +5,31 @@
  *      Author: MSamal
  *
  *  LICENSE:-
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ *  The MIT License (MIT)
+ *  Copyright (c) 2016 Mrunmoy Samal
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ *  Permission is hereby granted, free of charge, to any person
+ *  obtaining a copy of this software and associated documentation
+ *  files (the "Software"), to deal in the Software without
+ *  restriction, including without limitation the rights to use,
+ *  copy, modify, merge, publish, distribute, sublicense, and/or
+ *  sell copies of the Software, and to permit persons to whom
+ *  the Software is furnished to do so, subject to the following
+ *  conditions:
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  The above copyright notice and this permission notice shall
+ *  be included in all copies or substantial portions of the
+ *  Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+ *  OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  */
 
 #ifndef INC_CMN_HEADER_H_
@@ -28,6 +41,12 @@
 #include <time.h>
 #include <math.h>
 
+//! DEBUG_STACK.
+/*!
+		      Comment first line and uncomment
+		      second one to see enable struct
+		      packing.
+ */
 #define __ATTRIBUTE__(x)
 //#define __ATTRIBUTE__(x)    __attribute__(x)
 
@@ -68,7 +87,8 @@ typedef char 				BOOL;
 #define CRC_HIGH_BYTE			0
 #define CRC_LOW_BYTE			1
 
-
+//! _ENDIAN enum.
+/*! Endian Definition. */
 typedef enum _ENDIAN
 {
 	__ENDIAN_LITTLE = 0,
@@ -76,19 +96,22 @@ typedef enum _ENDIAN
 	__ENDIAN_MAX
 }_ENDIAN;
 
+
+//! DataType_t enum.
+/*! data type Definition. */
 typedef enum DataType_t
 {
-	DT_BOOL = 0,
-	DT_CHAR,
-	DT_UINT8,
-	DT_INT8,
-	DT_UINT16,
-	DT_INT16,
-	DT_UINT32,
-	DT_INT32,
-	DT_FLOAT,
-	DT_DOUBLE,
-	DT_MAX
+	DT_BOOL = 0,	/**< enum value DT_BOOL = 0. Indicates Boolean data type. */
+	DT_CHAR,		/**< enum value DT_CHAR = 1. Indicates char data type. */
+	DT_UINT8,		/**< enum value DT_UINT8 = 2. Indicates unsigned int 8-bit data type. */
+	DT_INT8,		/**< enum value DT_INT8 = 3. Indicates signed int 8-bit data type. */
+	DT_UINT16,		/**< enum value DT_UINT16 = 4. Indicates unsigned int 16-bit data type. */
+	DT_INT16,		/**< enum value DT_INT16 = 5. Indicates signed int 16-bit data type. */
+	DT_UINT32,		/**< enum value DT_UINT32 = 6. Indicates unsigned int 32-bit data type. */
+	DT_INT32,		/**< enum value DT_INT32 = 7. Indicates signed int 32-bit data type. */
+	DT_FLOAT,		/**< enum value DT_FLOAT = 8. Indicates float data type. */
+	DT_DOUBLE,		/**< enum value DT_DOUBLE = 9. Indicates double data type. */
+	DT_MAX			/**< enum value DT_MAX = 10. Max Count. */
 }DataType_t;
 
 
