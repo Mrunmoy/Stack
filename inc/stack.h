@@ -48,7 +48,7 @@
 /*!
 		      uncomment to use dynamic memory allocation.
  */
-#define __USE_DYNAMIC_MEMORY
+//#define __USE_DYNAMIC_MEMORY
 
 
 /*! \struct Stack_t
