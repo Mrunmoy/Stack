@@ -57,6 +57,8 @@ This will run all of the unit tests and output the results to the console and al
 ## Code Coverage
 Coverage report is generated under build/coverage_report/index.html
 
+[![Coverage Status](./coverage-badge.svg)](./coverage-report/index.html)
+
 ## API
 The stack library provides the following API:
 
