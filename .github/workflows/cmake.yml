@@ -24,9 +24,7 @@ jobs:
       # install coverage tools
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential gcov lcov libssl-dev
-        sudo apt-get install -y python3-pip
-        sudo pip3 install gcovr
+        sudo apt-get install -y build-essential lcov libssl-dev
 
     - name: Build
       # Build your program with the given configuration
