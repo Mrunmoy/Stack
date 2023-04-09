@@ -57,7 +57,7 @@ OR
 ```
 This will run all of the unit tests and output the results to the console and also run code coverage.
 
-## Code Coverage
+## Code Coverage [![Coverage Badge](./coverage.svg)](./coverage.svg)
 Coverage report is generated under build/coverage_report/index.html
 
 ## API
