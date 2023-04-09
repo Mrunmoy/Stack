@@ -1,4 +1,7 @@
-# Stack Library [![Build Status](https://travis-ci.com/your_username/stack-library.svg?branch=main)](https://travis-ci.com/your_username/stack-library)
+# Stack Library 
+![Test Status](https://github.com//Mrunmoy/Stack/workflows/BuildAndTest/badge.svg?branch=master)
+
+
 
 This project provides a simple stack library written in C, along with a set of unit tests written in C++ using the Google Test framework. The library provides basic stack functionality, including the ability to create and destroy a stack, push and pop elements onto and off of the stack, and check if the stack is empty.
 
