@@ -83,10 +83,10 @@ if $BUILD_ALL; then
   mkdir -p build
   cd build
   if [ "$BUILD_TYPE" == "static" ]; then
-    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTS=OFF ..
+    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_STACK_LIBS=OFF -DBUILD_TESTS=OFF ..
     cmake --build . --target=stack_static
   else
-    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_LIBS=ON -DBUILD_TESTS=OFF ..
+    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_STACK_LIBS=ON -DBUILD_TESTS=OFF ..
     cmake --build . --target=stack_shared
   fi
   lcov --directory . --capture --output-file coverage.info
@@ -102,7 +102,7 @@ if $RUN_TESTS; then
       exit 1
     fi
   else
-    if [ ! -f "build/main/libstack.so" ]; then
+    if [ ! -f "build/main/libstack_shared.so" ]; then
       echo "Error: Shared library not found, please build the library first"
       exit 1
     fi
@@ -111,9 +111,9 @@ if $RUN_TESTS; then
   mkdir -p build && cd build
 
   if [ "$BUILD_TYPE" == "static" ]; then
-    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTS=ON ..
+    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_STACK_LIBS=OFF -DBUILD_TESTS=ON ..
   else
-    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_LIBS=ON -DBUILD_TESTS=ON ..
+    cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_STACK_LIBS=ON -DBUILD_TESTS=ON ..
   fi
 
   cmake --build . --target=StackTest
@@ -121,7 +121,12 @@ if $RUN_TESTS; then
   # Run tests and generate coverage report
   ctest --verbose --output-on-failure
 
-  gcov -o CMakeFiles/stack_static.dir/src main/src/stack.c --object-directory build/CMakeFiles/stack_static.dir/src
+  if [ "$BUILD_TYPE" == "static" ]; then
+    gcov -o CMakeFiles/stack_static.dir/src main/src/stack.c --object-directory build/CMakeFiles/stack_static.dir/src
+  else
+    gcov -o CMakeFiles/stack_static.dir/src main/src/stack.c --object-directory build/CMakeFiles/stack_shared.dir/src
+  fi
+
   gcov -o CMakeFiles/StackTest.dir test/tests.cpp --object-directory build/test
   lcov --directory . --capture --output-file coverage.info
   genhtml coverage.info --output-directory coverage_report

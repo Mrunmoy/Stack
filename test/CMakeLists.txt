@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_SHARED_STACK_LIBS "Build shared libraries" OFF)
 
 # Use FetchContent to download and include Google Test
 include(FetchContent)
@@ -29,7 +29,7 @@ add_executable(StackTest
 )
 
 # Link test executable with Google Test and your project's libraries
-if(BUILD_SHARED_LIBS)
+if(BUILD_SHARED_STACK_LIBS)
 	target_link_libraries(StackTest
 		gtest_main
 		stack_shared

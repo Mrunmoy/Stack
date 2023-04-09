@@ -4,7 +4,7 @@ project(Stack)
 
 # Build options
 option(BUILD_TESTS "Build tests" ON)
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_SHARED_STACK_LIBS "Build shared libraries" OFF)
 
 # Set C standard to C11
 set(CMAKE_C_STANDARD 11)
@@ -28,7 +28,7 @@ set(STACK_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/main/inc/ DESTINATION include)
 
 # Install library
-if(BUILD_SHARED_LIBS)
+if(BUILD_SHARED_STACK_LIBS)
     install(TARGETS stack_shared LIBRARY DESTINATION lib)
 else()
     install(TARGETS stack_static ARCHIVE DESTINATION lib)
