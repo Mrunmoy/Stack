@@ -39,6 +39,7 @@ jobs:
 
     - name: Generate Coverage Badge
       run: |
+        mkdir -p ./coverage
         gcovr --root . --xml ./coverage/coverage.xml
         cov=$(xmllint --xpath 'string(//class[@filename="main/src/stack.c"]/@line-rate)' ./coverage/coverage.xml)
         cov_percent=$(awk "BEGIN {print int(${cov} * 100)}")
