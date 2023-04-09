@@ -38,3 +38,11 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ./build.sh --static --test
 
+    - name: Create coverage badge
+      uses: badges/shields@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        path: '${{github.workspace}}/build/coverage-report/index.html'
+        style: 'flat-square'
+        label: 'Coverage'
+        color: 'success'
